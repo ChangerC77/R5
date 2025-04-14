@@ -843,6 +843,35 @@ sudo ldconfig
 cd ~/ARX/R5/00-sh/ROS
 ./01make.sh
 ```
+output 1
+```
+[ 87%] Built target arx5_arm_msg_generate_messages
+[ 87%] Built target arm_control_generate_messages
+[ 90%] Building CXX object arx_r5_ros/arx_r5_controller/CMakeFiles/R5KeyBoard.dir/src/KeyBoard.cpp.o
+[ 93%] Building CXX object arx_r5_ros/arx_r5_controller/CMakeFiles/R5Controller.dir/src/R5Controller.cpp.o
+[ 96%] Linking CXX executable /home/tars/R5/ROS/R5_ws/devel/lib/arx_r5_controller/R5KeyBoard
+[ 96%] Built target R5KeyBoard
+[100%] Linking CXX executable /home/tars/R5/ROS/R5_ws/devel/lib/arx_r5_controller/R5Controller
+[100%] Built target R5Controller
+```
+output 2
+```
+安装依赖
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+ros-noetic-serial 已经是最新版 (1.2.1-1focal.20220104.154733)。
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
+crw-rw-rw- 1 root dialout 166, 0 4月  14 14:59 /dev/ttyACM0
+crw-rw-rw- 1 root dialout 166, 1 4月  14 14:59 /dev/ttyACM1
+crw-rw-rw- 1 root dialout 166, 2 4月  14 14:59 /dev/ttyACM2
+udev 规则文件已存在: /etc/udev/rules.d/99-ttyACM.rules
+重新加载 udev 规则...
+确保当前用户已被添加到 dialout 组...
+操作完成。请重新登录，或运行 'newgrp dialout' 使更改生效。
+您可以通过以下命令验证组成员信息：
+groups tars
+```
 + ubuntu 22.04
 ```
 cd ~/ARX/R5/00-sh/ROS2
@@ -890,12 +919,34 @@ udev 规则文件已存在: /etc/udev/rules.d/99-ttyACM.rules
 groups tars
 ```
 全部子窗口编译结束后
-### 01make.sh
+### 02make.sh
 the same step with `ubuntu 20.4` and `ubuntu 22.04`
 ```
 ./02make.sh
 ```
-output
+output (ubuntu 20.04)
+```
+[ 11%] Generating Lisp code from pos_cmd_msg/PosCmd.msg
+[ 22%] Generating C++ code from pos_cmd_msg/PosCmd.msg
+[ 33%] Generating Python from MSG pos_cmd_msg/PosCmd
+[ 44%] Generating EusLisp code from pos_cmd_msg/PosCmd.msg
+[ 55%] Generating Javascript code from pos_cmd_msg/PosCmd.msg
+[ 66%] Generating EusLisp manifest code for pos_cmd_msg
+[ 66%] Built target pos_cmd_msg_generate_messages_nodejs
+[ 66%] Built target pos_cmd_msg_generate_messages_lisp
+[ 77%] Generating Python msg __init__.py for pos_cmd_msg
+[ 77%] Built target pos_cmd_msg_generate_messages_cpp
+[ 77%] Built target pos_cmd_msg_generate_messages_py
+[ 77%] Built target pos_cmd_msg_generate_messages_eus
+Scanning dependencies of target pos_cmd_msg_generate_messages
+Scanning dependencies of target serial_port
+[ 77%] Built target pos_cmd_msg_generate_messages
+[ 88%] Building CXX object serial_port/CMakeFiles/serial_port.dir/src/serial_port.cpp.o
+[100%] Linking CXX executable /home/tars/R5/ARX_VR_SDK/ROS/devel/lib/serial_port/serial_port
+[100%] Built target serial_port
+
+```
+output (ubuntu 22.04)
 ```
 Starting >>> arm_control
 Finished <<< arm_control [2.32s]                    
@@ -924,6 +975,14 @@ sudo visudo
 ```
 ~/ARX/R5/00-sh/ROS
 ./05double_vr.sh
+```
+#### output 1
+```
+CAN 接口 can1 正常工作
+```
+#### output 2
+```
+CAN 接口 can3 正常工作
 ```
 output 3
 ```
